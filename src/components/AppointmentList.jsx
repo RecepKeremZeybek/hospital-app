@@ -1,6 +1,6 @@
 import { Col, Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
-import {RiDeleteBinLine} from "react-icons/ri"
+import { RiDeleteBinLine } from "react-icons/ri";
 
 const AppointmentList = ({ app }) => {
   console.log(app);
@@ -10,14 +10,21 @@ const AppointmentList = ({ app }) => {
         Appointment List
       </h3>
       {app.map(({ id, patient, consulted, doctor, day }) => (
-        <div key={id} className={consulted ? "appointments consulted": "appointments"}>
-          <Row>
-            <Col>
+        <div
+          key={id}
+          className={consulted ? "appointments consulted" : "appointments"}
+        >
+          <Row className="justify-content-between align-items-center">
+            <Col xs={12} sm={12} md={6}>
               <h4>{patient}</h4>
               <h5>{doctor}</h5>
             </Col>
-            <Col>{day}</Col>
-            <Col><RiDeleteBinLine className="text-danger fs-2"/></Col>
+            <Col>
+              <h5>{day}</h5>
+            </Col>
+            <Col className="text-end">
+              <RiDeleteBinLine className="text-danger fs-2" />
+            </Col>
           </Row>
         </div>
       ))}

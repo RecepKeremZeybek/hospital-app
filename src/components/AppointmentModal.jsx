@@ -9,6 +9,11 @@ function AppointmentModal({ show, handleClose, apps, setApps, drName }) {
     const [date,setDate]=useState(new Date().toISOString().slice(0, 10))
 
 
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        
+        handleClose()
+    }
     
   return (
     <>
@@ -17,7 +22,7 @@ function AppointmentModal({ show, handleClose, apps, setApps, drName }) {
           <Modal.Title>Appointment for {drName}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form >
+          <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="name">
               <Form.Label>Patient Name</Form.Label>
               <Form.Control

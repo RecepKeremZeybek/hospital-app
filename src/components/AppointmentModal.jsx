@@ -4,24 +4,12 @@ import Form from "react-bootstrap/Form"
 import { useState } from "react"
 
 function AppointmentModal({ show, handleClose, apps, setApps, drName }) {
-  const [name, setName] = useState("")
-  const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
+ 
+    const [name,setName]=useState("")
+    const [date,setDate]=useState(new Date().toISOString().slice(0, 10))
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setApps([
-      ...apps,
-      {
-        id: new Date().getTime(),
-        patient: name,
-        day: date,
-        consulted: false,
-        doctor: drName,
-      },
-    ])
-    setName("")
-    handleClose()
-  }
+
+    
   return (
     <>
       <Modal show={show} onHide={handleClose}>
@@ -29,7 +17,7 @@ function AppointmentModal({ show, handleClose, apps, setApps, drName }) {
           <Modal.Title>Appointment for {drName}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={handleSubmit}>
+          <Form >
             <Form.Group className="mb-3" controlId="name">
               <Form.Label>Patient Name</Form.Label>
               <Form.Control

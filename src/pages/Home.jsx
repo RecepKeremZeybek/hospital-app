@@ -11,7 +11,7 @@ const Home = () => {
     <main className="text-center mt-2">
       <h1 className="display-5 text-danger">CLARUS HOSPITAL</h1>
       <Doctors app={appointments} setApp={setAppointments} />
-      <AppointmentList app={appointments} />
+      <AppointmentList app={appointments}  setApp={setAppointments}/>
     </main>
   );
 };

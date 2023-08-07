@@ -2,7 +2,10 @@ import { Col, Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import { RiDeleteBinLine } from "react-icons/ri";
 
-const AppointmentList = ({ app }) => {
+const AppointmentList = ({ app,setApp }) => {
+  const handleDelete = (id) => {
+    setApp()
+  };
   console.log(app);
   return (
     <Container className="p-2">
@@ -23,7 +26,11 @@ const AppointmentList = ({ app }) => {
               <h5>{day}</h5>
             </Col>
             <Col className="text-end">
-              <RiDeleteBinLine className="text-danger fs-2" />
+              <RiDeleteBinLine
+                className="text-danger fs-2"
+                type="button"
+                onClick={() => handleDelete(id)}
+              />
             </Col>
           </Row>
         </div>

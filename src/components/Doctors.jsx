@@ -4,7 +4,7 @@ import { Col, Row } from "react-bootstrap";
 import AppointmentModal from "./AppointmentModal";
 import { useState } from "react";
 
-const Doctors = () => {
+const Doctors = ({ app, setApp }) => {
   const [show, setShow] = useState(false);
 
   return (
@@ -27,7 +27,12 @@ const Doctors = () => {
           </Col>
         ))}
       </Row>
-      <AppointmentModal show={show} handleClose={() => setShow(false)} />
+      <AppointmentModal
+        show={show}
+        handleClose={() => setShow(false)}
+        app={app}
+        setApp={setApp}
+      />
     </Container>
   );
 };

@@ -1,20 +1,24 @@
-import Button from "react-bootstrap/Button"
-import Modal from "react-bootstrap/Modal"
-import Form from "react-bootstrap/Form"
-import { useState } from "react"
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
+import { useState } from "react";
 
-function AppointmentModal({ show, handleClose, apps, setApps, drName }) {
- 
-    const [name,setName]=useState("")
-    const [date,setDate]=useState(new Date().toISOString().slice(0, 10))
+function AppointmentModal({ show, handleClose, app, setApp, drName }) {
+  const [name, setName] = useState("");
+  const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
 
-
-    const handleSubmit = (e)=>{
-        e.preventDefault();
-        
-        handleClose()
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setApp([...app, {
+      id:app.length+1 ,
+      patient:name,
+      day:date,
+      consulted: false,
     
+    }]);
+    handleClose();
+  };
+
   return (
     <>
       <Modal show={show} onHide={handleClose}>
@@ -57,7 +61,7 @@ function AppointmentModal({ show, handleClose, apps, setApps, drName }) {
         </Modal.Body>
       </Modal>
     </>
-  )
+  );
 }
 
-export default AppointmentModal
+export default AppointmentModal;

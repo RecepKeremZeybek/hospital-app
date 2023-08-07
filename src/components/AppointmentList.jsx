@@ -2,9 +2,9 @@ import { Col, Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import { RiDeleteBinLine } from "react-icons/ri";
 
-const AppointmentList = ({ app,setApp }) => {
+const AppointmentList = ({ app, setApp }) => {
   const handleDelete = (id) => {
-    setApp()
+    setApp(app.filter((item) => item.id !== id));
   };
   console.log(app);
   return (

@@ -10,7 +10,7 @@ function AppointmentModal({ show, handleClose, app, setApp, drName }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setApp([...app, {
-      id:app.length+1 ,
+      id:new Date().getTime() ,
       patient:name,
       day:date,
       consulted: false,

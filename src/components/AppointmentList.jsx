@@ -7,18 +7,26 @@ const AppointmentList = ({ app, setApp }) => {
     setApp(app.filter((item) => item.id !== id));
   };
   console.log(app);
+
+  const handleDoubleClick = (id) => {
+    setApp(
+      app.map((item) =>
+        item.id === id ? { ...item, consulted: !item.consulted } : item
+      )
+    );
+  };
   return (
     <Container className="p-2">
       <h3 className="display-6 mb-2" style={{ color: "rgb(166, 18, 189)" }}>
         Appointment List
       </h3>
-      {app.length<1&&  <img src="./img/appointment.jpg" alt="" width="70%" />}
+      {app.length < 1 && <img src="./img/appointment.jpg" alt="" width="70%" />}
       {app.map(({ id, patient, consulted, doctor, day }) => (
         <div
           key={id}
           className={consulted ? "appointments consulted" : "appointments"}
+          onDoubleClick={() => handleDoubleClick(id)}
         >
-         
           <Row className="justify-content-between align-items-center">
             <Col xs={12} sm={12} md={6}>
               <h4>{patient}</h4>

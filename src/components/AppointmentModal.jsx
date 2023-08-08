@@ -16,6 +16,7 @@ function AppointmentModal({ show, handleClose, app, setApp, drName }) {
       consulted: false,
     
     }]);
+    setName("")
     handleClose();
   };
 
